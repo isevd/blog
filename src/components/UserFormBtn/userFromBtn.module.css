@@ -1,0 +1,22 @@
+.btn {
+  display: block;
+  width: 350px;
+  height: 40px;
+  margin: 20px 10px 10px 30px;
+  background: #1890ff;
+  border-radius: 4px;
+
+  outline: none;
+  border: none;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.btn-disable {
+  background-color: grey;
+}
