@@ -13,7 +13,8 @@ const Favorite = ({ favorited, favoritesCount, onFavorite, slug }) => {
 
   useEffect(() => {
     setFav(favorited)
-  }, [favorited])
+    setFavCount(favoritesCount)
+  }, [favorited, favoritesCount])
 
   useEffect(() => {
     if (slug === favReply.slug) {
@@ -24,6 +25,7 @@ const Favorite = ({ favorited, favoritesCount, onFavorite, slug }) => {
 
   const heartSrc = fav ? redHeart : heart
   const method = fav ? 'DELETE' : 'POST'
+
   return (
     <div className={style.favoritesCount}>
       <button type="button" onClick={() => onFavorite(slug, method)}>

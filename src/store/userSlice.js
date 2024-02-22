@@ -47,7 +47,11 @@ export const fetchServiceUser = createAsyncThunk(
       if (!err.response) {
         throw err
       }
-      message.error('Authorization failed')
+
+      err.response.errors.username || err.response.errors.email
+        ? message.error('Username or email already taken')
+        : message.error('Email or password is invalid')
+
       return rejectWithValue(err.response)
     }
   }

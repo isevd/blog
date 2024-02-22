@@ -5,6 +5,18 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom'
 
+import {
+  HOME_PATH,
+  ARTICLES_PATH,
+  ARTICLE_PATH,
+  EDIT_ARTICLE_PATH,
+  NEW_ARTICLE_PATH,
+  SIGN_UP_PATH,
+  SIGN_IN_PATH,
+  PROFILE_PATH,
+  NOT_FOUND_PATH,
+} from '../src/utils/paths'
+
 import Layout from './components/Layout/Layout'
 import Posts from './pages/Posts'
 import Post from './pages/Post'
@@ -16,17 +28,17 @@ import Profile from './pages/Profile'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+    <Route path={HOME_PATH} element={<Layout />}>
       <Route index element={<Posts />} />
-      <Route path="/articles" element={<Posts />} />
-      <Route path="articles/:slug" element={<Post />} />
-      <Route path="articles/:slug/edit" element={<EditPost />} />
-      <Route path="new-article" element={<CreateNewArticle />} />
-      <Route path="sign-up" element={<SignUp />} />
-      <Route path="sign-in" element={<SignIn />} />
-      <Route path="profile" element={<Profile />} />
+      <Route path={ARTICLES_PATH} element={<Posts />} />
+      <Route path={ARTICLE_PATH} element={<Post />} />
+      <Route path={EDIT_ARTICLE_PATH} element={<EditPost />} />
+      <Route path={NEW_ARTICLE_PATH} element={<CreateNewArticle />} />
+      <Route path={SIGN_UP_PATH} element={<SignUp />} />
+      <Route path={SIGN_IN_PATH} element={<SignIn />} />
+      <Route path={PROFILE_PATH} element={<Profile />} />
       <Route
-        path="*"
+        path={NOT_FOUND_PATH}
         element={<h1 style={{ textAlign: 'center' }}>Page 404</h1>}
       />
     </Route>

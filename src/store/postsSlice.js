@@ -55,12 +55,16 @@ const postsListSlice = createSlice({
       })
       .addCase(fetchFavorite.fulfilled, (state, action) => {
         const { slug, favorited, favoritesCount } = action.payload.article
-        state.favorite = {
-          status: 'succeeded',
-          slug,
-          favorited,
-          favoritesCount,
-        }
+        state.posts = state.posts.map((post) => {
+          if (post.slug === slug) {
+            return {
+              ...post,
+              favorited,
+              favoritesCount,
+            }
+          }
+          return post
+        })
       })
       .addCase(fetchFavorite.rejected, (state, action) => {
         state.error = action.error.message

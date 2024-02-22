@@ -1,9 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { Spin } from 'antd'
 import { message } from 'antd'
-
 import { fetchArticle } from '../../store/articleSlice'
 import Post from '../Post'
 
@@ -43,9 +41,7 @@ const Article = () => {
 
   let content
 
-  if (status === 'loading') {
-    content = <Spin />
-  } else if (status === 'succeeded') {
+  if (status === 'succeeded') {
     content = (
       <div className={style.container}>
         <Post
